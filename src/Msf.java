@@ -1,8 +1,5 @@
 import java.awt.*;
 import java.awt.event.InputEvent;
-import java.awt.KeyEventDispatcher;
-import java.awt.KeyboardFocusManager;
-import java.awt.event.KeyEvent;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -39,6 +36,7 @@ public class Msf {
             Thread.sleep(500);
 
             System.out.println("case normalement lancée");
+            /*
             if (detectrouge.main(null)) {
                 System.out.println("Code qui d'éxecute toute les  30 itérations pour éviter le cap que le jeux te met quand tu as trop d'argent en main");
                 bougegrossac(756, 113);
@@ -58,6 +56,7 @@ public class Msf {
                 click();
                 continue;
             }
+            */
             Thread.sleep(6200);
 
             if (Screencolorgreen.main(null)) {
