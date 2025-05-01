@@ -8,7 +8,6 @@ public class detect2 {
         try {
             Robot robot = new Robot();
 
-            // Define target color (green) and tolerance
             Color targetGreen = new Color(18, 110, 23);
             int tolerance = 30;
 

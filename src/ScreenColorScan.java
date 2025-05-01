@@ -7,12 +7,12 @@ public class ScreenColorScan {
         try {
             Robot robot = new Robot();
 
-            // Get screen dimensions
+
             Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             int width = (int) screenSize.getWidth();
             int height = (int) screenSize.getHeight();
 
-            // Target color to detect (e.g., red)
+
             Color targetColor = new Color(255, 0, 0);
             int tolerance = 3;
 

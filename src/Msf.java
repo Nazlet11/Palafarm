@@ -94,6 +94,6 @@ public class Msf {
 
     public static void bougegrossac(int x, int y) throws InterruptedException {
         bot.mouseMove(x, y);
-        Thread.sleep(60);  // ❗ Important: allow system to register move
+        Thread.sleep(60);
     }
 }

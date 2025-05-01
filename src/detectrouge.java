@@ -8,11 +8,11 @@ public class detectrouge {
         try {
             Robot robot = new Robot();
 
-            // Define target color (green) and tolerance
+
             Color targetGreen = new Color(255, 71, 71);
             int tolerance = 30;
 
-            // Get the color at the screen coordinate
+
             Color pixelColor = robot.getPixelColor(x, y);
 
             if (isColorMatch(pixelColor, targetGreen, tolerance)) {

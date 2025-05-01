@@ -8,11 +8,11 @@ public class detect3 {
         try {
             Robot robot = new Robot();
 
-            // Define target color (green) and tolerance
+
             Color targetGreen = new Color(18, 110, 23);
             int tolerance = 30;
 
-            // Get the color at the screen coordinate
+
             Color pixelColor = robot.getPixelColor(x, y);
 
             if (isColorMatch(pixelColor, targetGreen, tolerance)) {
