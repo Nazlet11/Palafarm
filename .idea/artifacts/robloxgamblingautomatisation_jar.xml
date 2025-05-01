@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="robloxgamblingautomatisation:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/robloxgamblingautomatisation_jar</output-path>
-    <root id="archive" name="robloxgamblingautomatisation.jar">
-      <element id="module-output" name="robloxgamblingautomatisation" />
-    </root>
-  </artifact>
-</component>
