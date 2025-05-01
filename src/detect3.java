@@ -10,7 +10,7 @@ public class detect3 {
 
             // Define target color (green) and tolerance
             Color targetGreen = new Color(18, 110, 23);
-            int tolerance = 50;
+            int tolerance = 30;
 
             // Get the color at the screen coordinate
             Color pixelColor = robot.getPixelColor(x, y);
@@ -18,19 +18,13 @@ public class detect3 {
             if (isColorMatch(pixelColor, targetGreen, tolerance)) {
                 System.out.println("Green detected at (" + x + ", " + y + "). Clicking...");
 
-                // Move the mouse to that position
-                robot.mouseMove(x, y);
-
-                // Simulate mouse click (left button)
-                System.out.println("clic");
-                Msf.bougegrossac(1018, 774);
                 return true;
             } else {
                 System.out.println("No green at (" + x + ", " + y + "). Color was: " + pixelColor);
                 return false;
             }
 
-        } catch (AWTException | InterruptedException e) {
+        } catch (AWTException e) {
             System.err.println("Robot initialization failed:");
             e.printStackTrace();
         }

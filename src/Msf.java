@@ -2,101 +2,109 @@ import java.awt.*;
 import java.awt.event.InputEvent;
 
 public class Msf {
-    public static void main(String[] args) throws InterruptedException, AWTException {
-        System.out.println("hello");
-        //ScreenColorScan.main(null);
-        while (true) {
-            System.out.println("début du cycle");
-            Thread.sleep(500);
-            bougeclic(100, 287);
-            clic();
-            Thread.sleep(6700);
-            bougegrossac(100, 287);
-            if (Screencolorgreen.main(null) == true){
-                clic();
-                Thread.sleep(150);
-            }
-            bougegrossac(100, 287);
-            if (detect2.main(null) == true){
-                clic();
-                Thread.sleep(150);
-            }
-            bougegrossac(100, 287);
-            if (detect3.main(null) == true){
-                clic();
-                Thread.sleep(150);
-            }
-            bougegrossac(100, 287);
-            Thread.sleep(1500);
-        }
 
+    private static Robot bot;
 
-        }
-    public static void bougeclic(int x, int y) throws AWTException, InterruptedException {
-        Robot bot = new Robot();
-        Thread.sleep(500);
-        bot.mouseMove(x, y);
-        Thread.sleep(500);
-        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-    }
-
-    public static void clic() throws AWTException, InterruptedException {
-        Robot bot = new Robot();
-        Thread.sleep(30);
-        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-        Thread.sleep(40);
-        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        Thread.sleep(40);
-        bougeclic(100, 287);
-    }
-
-    public static void bougegrossac(int x, int y) throws AWTException, InterruptedException {
-        Robot bot = new Robot();
-        bot.mouseMove(x, y);
-    }
-
-    public static void relachegrossac() throws AWTException, InterruptedException {
-        Robot bot = new Robot();
-        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-    }
-
-    public static void detectgreen(String[] args) {
+    static {
         try {
-            Robot robot = new Robot();
-
-            int x = 500;
-            int y = 300;
-
-            // Read the color at the specific screen coordinate
-            Color pixelColor = robot.getPixelColor(x, y);
-
-            // Define your target color (pure green)
-            Color targetColor = new Color(0, 255, 0);
-
-            // Allow a small tolerance in color matching
-            int tolerance = 10;
-
-            if (isColorMatch(pixelColor, targetColor, tolerance)) {
-                System.out.println("Green detected at (" + x + ", " + y + ")");
-            } else {
-                System.out.println("No green detected at (" + x + ", " + y + ")");
-                System.out.println("Found color: " + pixelColor);
-            }
-
+            bot = new Robot();
         } catch (AWTException e) {
-            System.err.println("Screen access failed:");
             e.printStackTrace();
+            System.exit(1);
         }
     }
 
-    public static boolean isColorMatch(Color c1, Color c2, int tolerance) {
-        int redDiff = Math.abs(c1.getRed() - c2.getRed());
-        int greenDiff = Math.abs(c1.getGreen() - c2.getGreen());
-        int blueDiff = Math.abs(c1.getBlue() - c2.getBlue());
+    public static void main(String[] args) throws InterruptedException {
+        System.out.println("hello");
 
-        return redDiff <= tolerance && greenDiff <= tolerance && blueDiff <= tolerance;
+        bougegrossac(100, 287);
+        Thread.sleep(40);
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+        for (int i = 0; i < 10000; i++) {
+            System.out.println("Itération :" + i);
+            System.out.println("début du cycle");
+
+            bougegrossac(100, 287);
+            Thread.sleep(40);
+            bougegrossac(100, 284);
+            bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+            System.out.println("clic");
+            Thread.sleep(40);  // hold duration
+            bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+            System.out.println("relache");
+            Thread.sleep(500);
+
+            System.out.println("case normalement lancée");
+            Thread.sleep(6200);
+
+
+            if (Screencolorgreen.main(null)) {
+                bougegrossac(670, 757);
+                Thread.sleep(70);
+                bougegrossac(670, 760);
+            } else if (detect2.main(null)) {
+                bougegrossac(864, 757);
+                Thread.sleep(70);
+                bougegrossac(864, 760);
+            } else if (detect3.main(null)) {
+                bougegrossac(1018, 757);
+                Thread.sleep(70);
+                bougegrossac(1018, 760);
+            }
+            Thread.sleep(200);
+            bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+            System.out.println("clic");
+            Thread.sleep(40);
+            bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+            System.out.println("relache");
+            bougegrossac(1500, 960);
+            Thread.sleep(100);
+            bougegrossac(1500, 963);
+            Thread.sleep(100);
+            System.exit(0);
+
+
+
+
+
+
+
+            if (i % 30 == 0 && i != 0) {
+                System.out.println("Itération : " + i + "ème");
+                System.out.println("Code qui d'éxecute toute les  30 itérations pour éviter le cap que le jeux te met quand tu as trop d'argent en main");
+                bougegrossac(756, 113);
+                Thread.sleep(100);
+                bougegrossac(756, 110);
+                Thread.sleep(100);
+                bougegrossac(564, 379);
+                Thread.sleep(100);
+                bougegrossac(567, 379);
+                bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                System.out.println("clic");
+                Thread.sleep(40);
+                bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+                System.out.println("relache");
+                bougegrossac(678, 112);
+                Thread.sleep(100);
+                bougegrossac(678, 112);
+
+
+            }
+        }
     }
 
+    public static void click() throws InterruptedException {
+        Thread.sleep(20);  // safety delay
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        Thread.sleep(40);  // hold duration
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        Thread.sleep(20);  // post-release delay
+    }
 
+    public static void bougegrossac(int x, int y) throws InterruptedException {
+        bot.mouseMove(x, y);
+        Thread.sleep(60);  // ❗ Important: allow system to register move
+    }
 }
