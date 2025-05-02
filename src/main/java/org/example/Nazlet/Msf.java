@@ -87,6 +87,13 @@ public class Msf {
         Thread.sleep(60);
     }
 
+    //bouge et rebouge de qlq plixels pour actualiser la position
+    public static void bougeplsactualisation(int x, int y) throws InterruptedException {
+        bot.mouseMove(x, y);
+        Thread.sleep(60);
+        bot.mouseMove(x+3, y);
+    }
+
 
                 /* Detecte du rouge pour si trop d'argent
             if (detectrouge.main(null)) {

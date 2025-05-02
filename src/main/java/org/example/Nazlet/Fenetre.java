@@ -12,8 +12,26 @@ public class Fenetre {
 
         JFrame frame = new JFrame("Window");
         JButton btn = new JButton("Start");
+        JLabel labelstat = new JLabel("Itération");
+
 
         frame.setSize(400, 350);
+
+        /*
+        Runnable statactualisation = () -> {
+            for(int i =0;1==1;i++){
+                labelstat.setText("Iteration : " + Msf.i);
+                try {
+                    Thread.sleep(20000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+
+        Thread thread = new Thread(statactualisation);
+        thread.start(); // This will call the run() method
+        */
 
         UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 
@@ -56,3 +74,4 @@ public class Fenetre {
         Fenetre fenetre = new Fenetre();
     }
 }
+
