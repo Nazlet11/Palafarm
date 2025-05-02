@@ -2,14 +2,13 @@ package org.example.Nazlet;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
-import javax.swing.*;
-import java.awt.event.*;
 
 
 public class Msf {
 
     private static Robot bot;
 
+    //Initialisation
     static {
         try {
             bot = new Robot();
@@ -21,61 +20,50 @@ public class Msf {
 
 
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("hello");
+        System.out.println("");
 
+        //Bouge sur la caisse
         bougegrossac(100, 287);
         Thread.sleep(40);
         click();
 
-        for (int i = 0; i < 10000; i++) {
-            System.out.println("Itération :" + i);
-            System.out.println("début du cycle");
 
+        //Boucle
+        for (int i = 0; i < 10000; i++) {
+            System.out.println("Itération : " + i);
+            System.out.println("Début du cycle");
+
+            //Clic sur la caisse
             bougegrossac(100, 287);
             Thread.sleep(40);
             bougegrossac(100, 284);
             click();
             Thread.sleep(500);
 
-            System.out.println("case normalement lancée");
-            /*
-            if (detectrouge.main(null)) {
-                System.out.println("Code qui d'éxecute toute les  30 itérations pour éviter le cap que le jeux te met quand tu as trop d'argent en main");
-                bougegrossac(756, 113);
-                Thread.sleep(1000);
-                bougegrossac(756, 110);
-                click();
-                Thread.sleep(100);
-                bougegrossac(564, 379);
-                Thread.sleep(1000);
-                bougegrossac(567, 379);
-                Thread.sleep(100);
-                click();
-                bougegrossac(678, 112);
-                Thread.sleep(1000);
-                bougegrossac(678, 109);
-                Thread.sleep(100);
-                click();
-                continue;
-            }
-            */
+            //Attente de l'ouverture de la caisse
+            System.out.println("ouverture de la caisse...");
             Thread.sleep(6200);
 
-            if (Screencolorgreen.main(null)) {
+            //Detecte ou le bouton sell est et se met dessus
+            if (detectpos1.main(null)) {
                 bougegrossac(670, 757);
                 Thread.sleep(70);
                 bougegrossac(670, 760);
-            } else if (detect2.main(null)) {
+            } else if (detectpos2.main(null)) {
                 bougegrossac(864, 757);
                 Thread.sleep(70);
                 bougegrossac(864, 760);
-            } else if (detect3.main(null)) {
+            } else if (detectpos3.main(null)) {
                 bougegrossac(1018, 757);
                 Thread.sleep(70);
                 bougegrossac(1018, 760);
             }
+
+            //clic sur le bouton
             Thread.sleep(200);
             click();
+
+            //se deplace dans zone vide pr actualiser
             bougegrossac(1500, 960);
             Thread.sleep(100);
             bougegrossac(1500, 963);
@@ -98,4 +86,27 @@ public class Msf {
         bot.mouseMove(x, y);
         Thread.sleep(60);
     }
+
+
+                /* Detecte du rouge pour si trop d'argent
+            if (detectrouge.main(null)) {
+                System.out.println("Code qui d'éxecute toute les  30 itérations pour éviter le cap que le jeux te met quand tu as trop d'argent en main");
+                bougegrossac(756, 113);
+                Thread.sleep(1000);
+                bougegrossac(756, 110);
+                click();
+                Thread.sleep(100);
+                bougegrossac(564, 379);
+                Thread.sleep(1000);
+                bougegrossac(567, 379);
+                Thread.sleep(100);
+                click();
+                bougegrossac(678, 112);
+                Thread.sleep(1000);
+                bougegrossac(678, 109);
+                Thread.sleep(100);
+                click();
+                continue;
+            }
+            */
 }

@@ -5,14 +5,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static javax.swing.SwingUtilities.updateComponentTreeUI;
+
 public class Fenetre {
-    public static void main(String[] args) {
+    public Fenetre() throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         JFrame frame = new JFrame("Window");
-        JButton btn = new JButton("Lancer le programme");
+        JButton btn = new JButton("Start");
 
-        frame.setSize(400, 350);  // Width = 400, Height = 300
+        frame.setSize(400, 350);
 
+        UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+
+        updateComponentTreeUI(frame);
+
+        frame.setIconImage(new ImageIcon("C:/Users/User/Documents/Cours/1SIO/Bloc_2/Java/Restaurant/automation_RobloxCaseOpeningSimulator/dice.ico").getImage());
 
 
         btn.setBounds(90,125,200,50);
@@ -43,5 +50,9 @@ public class Fenetre {
 
 
         frame.setVisible(true);
+    }
+
+    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        Fenetre fenetre = new Fenetre();
     }
 }
