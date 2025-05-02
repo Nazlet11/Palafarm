@@ -18,7 +18,11 @@ public class Fenetre {
         frame.setSize(400, 350);
 
         /*
-        Runnable statactualisation = () -> {
+
+
+
+
+        public void statactualisation() {
             for(int i =0;1==1;i++){
                 labelstat.setText("Iteration : " + Msf.i);
                 try {
@@ -27,14 +31,15 @@ public class Fenetre {
                     throw new RuntimeException(e);
                 }
             }
-        };
+          System.out.println("Thread is running...");
+    }
 
         Thread thread = new Thread(statactualisation);
         thread.start(); // This will call the run() method
         */
 
+        //Apparance native
         UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-
         updateComponentTreeUI(frame);
 
         frame.setIconImage(new ImageIcon("C:/Users/User/Documents/Cours/1SIO/Bloc_2/Java/Restaurant/automation_RobloxCaseOpeningSimulator/dice.ico").getImage());
