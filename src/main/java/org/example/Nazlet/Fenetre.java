@@ -1,18 +1,21 @@
 package org.example.Nazlet;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static javax.swing.SwingUtilities.updateComponentTreeUI;
-
 public class Fenetre {
+
+    Boucle Boucle = new Boucle();
+
     public Fenetre() throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         JFrame frame = new JFrame("Window");
         JButton btn = new JButton("Start");
         JLabel labelstat = new JLabel("Itération");
+
+
+
 
 
         frame.setSize(400, 350);
@@ -54,16 +57,11 @@ public class Fenetre {
         frame.setVisible(true);
 
 
+
         //bouton
         btn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new Thread(() -> {
-                    try {
-                        Msf.main(null);
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }).start();
+                Boucle.changeState();
                 System.out.println("Lancement du programme");
             }
         });
@@ -79,6 +77,15 @@ public class Fenetre {
 
     public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         Fenetre fenetre = new Fenetre();
+        Boucle Boucle = new Boucle();
+
+        new Thread(() -> {
+            try {
+                Boucle.main(null);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }).start();
     }
 }
 
