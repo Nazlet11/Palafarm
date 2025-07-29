@@ -49,13 +49,19 @@ public class detectcolor{
                 return true;
             } else {
                 System.out.println("Pas de blanc au (" + x + ", " + y + "), la couleur était : " + pixelColor);
-
+                playsound.playSound("notifson.wav");
                 return false;
             }
 
         } catch (AWTException e) {
             System.err.println("Problème dans la detection:");
             e.printStackTrace();
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return false;
     }

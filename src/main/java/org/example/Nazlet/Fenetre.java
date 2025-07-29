@@ -39,11 +39,13 @@ public class Fenetre {
         */
 
         //Apparance native
-        UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        updateComponentTreeUI(frame);
+        /*
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        */
 
+        /*
         frame.setIconImage(new ImageIcon("C:/Users/User/Documents/Cours/1SIO/Bloc_2/Java/Restaurant/automation_RobloxCaseOpeningSimulator/dice.ico").getImage());
-
+        */
 
         btn.setBounds(90,125,200,50);
 
