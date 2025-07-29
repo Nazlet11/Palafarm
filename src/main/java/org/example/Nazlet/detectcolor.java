@@ -1,11 +1,30 @@
 package org.example.Nazlet;
 
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class detectcolor{
 
     static int x;
     static int y;
+
+    // to store current position
+    Long currentFrame;
+    Clip clip;
+
+    // current status of clip
+    String status;
+
+    AudioInputStream audioInputStream;
+    static String filePath;
 
     public detectcolor(int x, int y){
         this.x = x;
@@ -30,6 +49,7 @@ public class detectcolor{
                 return true;
             } else {
                 System.out.println("Pas de blanc au (" + x + ", " + y + "), la couleur était : " + pixelColor);
+
                 return false;
             }
 

@@ -18,12 +18,12 @@ public class Msf {
     }
 
     // 950 501
-
+    // 1269 982
     public static void main(String[] args) throws InterruptedException {
         System.out.println("");
 
         boolean act = true;
-        detectcolor dtctclr = new detectcolor(955,501);
+        detectcolor dtctclr = new detectcolor(1269,982);
 
         //Boucle
         for (int i = 0; i < 99999; i++) {
