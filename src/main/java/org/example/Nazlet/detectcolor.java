@@ -45,11 +45,10 @@ public class detectcolor{
 
             if (isColorMatch(pixelColor, targetColor, tolerance)) {
                 System.out.println("Blanc detecté au  (" + x + ", " + y + ")");
-
+                playsound.playSound("notifson.wav");
                 return true;
             } else {
                 System.out.println("Pas de blanc au (" + x + ", " + y + "), la couleur était : " + pixelColor);
-                playsound.playSound("notifson.wav");
                 return false;
             }
 

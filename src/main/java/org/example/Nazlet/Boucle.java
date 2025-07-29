@@ -8,6 +8,8 @@ public class Boucle {
     private static Robot bot;
     static boolean state = false; // etat on ou off
     static int cooldown = 1000;
+    static int x = 950;
+    static int y = 501;
 
     //Initialisation
     static {
@@ -24,11 +26,12 @@ public class Boucle {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("");
 
-        detectcolor dtctclr = new detectcolor(950,501);
+
 
         //Boucle
         for (int i = 0; i < 999999; i++) {
             if (state == true){
+                detectcolor dtctclr = new detectcolor(x,y);
                 detectcolor.detect();
 
                 Thread.sleep(cooldown);
@@ -47,6 +50,10 @@ public class Boucle {
         } else {
             state = true;
         }
+    }
+    public void setXY(int x, int y){
+        this.x = x;
+        this.y = y;
     }
 
 }
