@@ -1,28 +1,30 @@
 package org.example.Nazlet;
 
-import java.awt.*;
-import java.io.File;
+import javax.sound.sampled.*;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.Scanner;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+import java.net.URL;
 
 public class playsound {
-    static void playSound(String soundFile) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
-        File f = new File("./" + soundFile);
-        AudioInputStream audioIn = AudioSystem.getAudioInputStream(f.toURI().toURL());
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioIn);
-        clip.start();
+    public static void playSound(String resourcePath) {
+        try {
+            URL soundURL = playsound.class.getResource(resourcePath);
+            if (soundURL == null) {
+                System.err.println("Son introuvable : " + resourcePath);
+                return;
+            }
+
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundURL);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        playSound("/notifson.wav"); // chemin relatif depuis resources
     }
-
 }
+
 

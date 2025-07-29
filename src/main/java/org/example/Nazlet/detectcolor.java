@@ -45,7 +45,7 @@ public class detectcolor{
 
             if (isColorMatch(pixelColor, targetColor, tolerance)) {
                 System.out.println("Blanc detecté au  (" + x + ", " + y + ")");
-                playsound.playSound("notifson.wav");
+                playsound.main(null);
                 return true;
             } else {
                 System.out.println("Pas de blanc au (" + x + ", " + y + "), la couleur était : " + pixelColor);
@@ -55,12 +55,6 @@ public class detectcolor{
         } catch (AWTException e) {
             System.err.println("Problème dans la detection:");
             e.printStackTrace();
-        } catch (UnsupportedAudioFileException e) {
-            throw new RuntimeException(e);
-        } catch (LineUnavailableException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
         return false;
     }
