@@ -35,7 +35,7 @@ public class Boucle {
                 //System.exit(0);
             } else {
                 // gachi de performance admire le spaghetti code
-                System.out.println("state : off");
+                System.out.println("etat : off");
                 Thread.sleep(cooldown);
             }
         }

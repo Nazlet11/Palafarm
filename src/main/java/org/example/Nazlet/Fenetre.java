@@ -1,8 +1,10 @@
 package org.example.Nazlet;
 
 import javax.swing.*;
+import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 public class Fenetre {
 
@@ -10,36 +12,20 @@ public class Fenetre {
 
     public Fenetre() throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        JFrame frame = new JFrame("Window");
-        JButton btn = new JButton("Start");
-        JLabel labelstat = new JLabel("Itération");
-
-
+        JFrame frame = new JFrame("Unclaimfinder notifier");
+        JButton btn = new JButton("Activer/Désactiver");
+        JButton redefcoords = new JButton("set x/y");
+        JLabel label = new JLabel("x et y texte");
+        JTextField xzone = new JTextField();
+        JTextField yzone = new JTextField();
 
 
 
         frame.setSize(400, 350);
 
-        /*
 
 
 
-
-        public void statactualisation() {
-            for(int i =0;1==1;i++){
-                labelstat.setText("Iteration : " + Msf.i);
-                try {
-                    Thread.sleep(20000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-          System.out.println("Thread is running...");
-    }
-
-        Thread thread = new Thread(statactualisation);
-        thread.start(); // This will call the run() method
-        */
 
         //Apparance native
         /*
@@ -50,11 +36,24 @@ public class Fenetre {
         frame.setIconImage(new ImageIcon("C:/Users/User/Documents/Cours/1SIO/Bloc_2/Java/Restaurant/automation_RobloxCaseOpeningSimulator/dice.ico").getImage());
         */
 
-        btn.setBounds(90,125,200,50);
 
+
+        xzone.setBounds(100, 110, 80, 20); // position x, y, largeur, hauteur
+        yzone.setBounds(200, 110, 80, 20); // position x, y, largeur, hauteur
+
+        label.setText("x / y");
+        btn.setBounds(90,40,200,50);
+        redefcoords.setBounds(140,140,100,20);
+
+
+        frame.add(label);
+        frame.add(xzone);
+        frame.add(yzone);
         frame.add(btn);
+        frame.add(redefcoords);
         frame.setLayout(null);
         frame.setVisible(true);
+        frame.setResizable(false);
 
 
 
@@ -62,7 +61,7 @@ public class Fenetre {
         btn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Boucle.changeState();
-                System.out.println("Lancement du programme");
+                System.out.println("Appui du bouton on/off");
             }
         });
 
@@ -78,6 +77,7 @@ public class Fenetre {
     public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         Fenetre fenetre = new Fenetre();
         Boucle Boucle = new Boucle();
+        new ConsoleWindow();
 
         new Thread(() -> {
             try {
