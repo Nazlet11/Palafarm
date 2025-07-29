@@ -8,8 +8,8 @@ public class Boucle {
     private static Robot bot;
     static boolean state = false; // etat on ou off
     static int cooldown = 1000;
-    static int x = 950;
-    static int y = 501;
+    static int x = 952;
+    static int y = 516;
 
     //Initialisation
     static {
