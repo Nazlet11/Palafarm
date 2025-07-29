@@ -7,21 +7,29 @@ import java.awt.event.ActionListener;
 
 public class Main {
 
-    Boucle Boucle = new Boucle();
-
     public Main() throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        JFrame frame = new JFrame("Unclaimfinder notifier");
-        JButton btn = new JButton("Activer/Désactiver");
-        JButton redefcoords = new JButton("set x/y");
+        JFrame frame = new JFrame("Palafarm");
+
+        ImageIcon iconAm = new ImageIcon(getClass().getResource("/Am.png"));
+        frame.setIconImage(iconAm.getImage());
+
+        ImageIcon iconUfn = new ImageIcon(getClass().getResource("/Ufn.png"));
+        frame.setIconImage(iconAm.getImage());
+
+        JButton btnAm = new JButton(iconAm);
+        JButton btnUfn = new JButton(iconUfn);
+
         JLabel label = new JLabel("x et y texte");
-        JTextField xzone = new JTextField();
-        JTextField yzone = new JTextField();
 
 
 
-        frame.setSize(400, 235);
 
+        frame.setSize(650, 235);
+
+        // j ai mis 2 heure a faire marcher l icone
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Pf.png"));
+        frame.setIconImage(icon.getImage());
 
 
 
@@ -31,25 +39,17 @@ public class Main {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         */
 
-        /*
-        frame.setIconImage(new ImageIcon("C:/Users/User/Documents/Cours/1SIO/Bloc_2/Java/Restaurant/automation_RobloxCaseOpeningSimulator/dice.ico").getImage());
-        */
 
-
-
-        xzone.setBounds(100, 110, 80, 20); // position x, y, largeur, hauteur
-        yzone.setBounds(200, 110, 80, 20); // position x, y, largeur, hauteur
 
         label.setText("x / y");
-        btn.setBounds(90,40,200,50);
-        redefcoords.setBounds(140,140,100,20);
+        btnAm.setBounds(90,40,150,100);
+        btnUfn.setBounds(340,40,150,100);
 
 
         frame.add(label);
-        frame.add(xzone);
-        frame.add(yzone);
-        frame.add(btn);
-        frame.add(redefcoords);
+
+        frame.add(btnAm);
+        frame.add(btnUfn);
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setResizable(false);
@@ -57,21 +57,44 @@ public class Main {
 
 
         //bouton on/off
-        btn.addActionListener(new ActionListener() {
+        btnAm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Boucle.changeState();
+                try {
+                    Autominer autominer = new Autominer();
+
+                    frame.setVisible(false);
+
+                } catch (UnsupportedLookAndFeelException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                } catch (InstantiationException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IllegalAccessException ex) {
+                    throw new RuntimeException(ex);
+                }
+
                 System.out.println("Appui du bouton on/off");
             }
         });
 
-        //bouton pr set les coords
-        redefcoords.addActionListener(new ActionListener() {
+        //bouton Ufn
+        btnUfn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int x = Integer.parseInt(xzone.getText());
-                int y = Integer.parseInt(yzone.getText());
-                Boucle.setXY(x,y);
+                try {
+                    Unclaimfinder_notifier unclaimfinder_notifier = new Unclaimfinder_notifier();
 
-                System.out.println("les coords on ete redefinies en " + x + " et " + y);
+                    frame.setVisible(false);
+
+                } catch (UnsupportedLookAndFeelException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                } catch (InstantiationException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IllegalAccessException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -85,17 +108,15 @@ public class Main {
     }
 
     public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-        Main main = new Main();
-        Boucle Boucle = new Boucle();
-        new ConsoleWindow();
+        try {
+            JFrame frame = new JFrame("Palafarm");
+            Main main = new Main();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
-        new Thread(() -> {
-            try {
-                Boucle.main(null);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-        }).start();
+
+
         System.out.println("Rappel : ne pas etre en fullscreen");
     }
 }

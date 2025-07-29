@@ -3,7 +3,7 @@ package org.example.Nazlet;
 import java.awt.*;
 
 
-public class Boucle {
+public class boucleUfn {
 
     private static Robot bot;
     static boolean state = false; // etat on ou off
