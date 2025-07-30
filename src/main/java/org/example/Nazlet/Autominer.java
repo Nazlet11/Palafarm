@@ -13,6 +13,9 @@ public class Autominer {
     public Autominer() throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
         JFrame frame = new JFrame("Autominer");
+
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
         JButton btn = new JButton("Activer/Désactiver");
         JButton btnlogs = new JButton("logs");
         JLabel label = new JLabel("x et y texte");
@@ -102,7 +105,7 @@ public class Autominer {
 
     public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         Autominer autominer = new Autominer();
-        //new ConsoleWindow();
+
 
 
         System.out.println("Rappel : ne pas etre en fullscreen");

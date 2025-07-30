@@ -82,8 +82,9 @@ public class Main {
         //bouton Ufn
         btnUfn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 try {
-                    Unclaimfinder_notifier unclaimfinder_notifier = new Unclaimfinder_notifier();
+                    Unclaimfinder_notifier unclaimfinder_notifier = new Unclaimfinder_notifier(null);
 
                     frame.setVisible(false);
 
@@ -96,6 +97,10 @@ public class Main {
                 } catch (IllegalAccessException ex) {
                     throw new RuntimeException(ex);
                 }
+
+
+
+
             }
         });
 
