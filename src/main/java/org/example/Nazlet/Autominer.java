@@ -71,15 +71,9 @@ public class Autominer {
 
                     backgroundThread = new Thread(() -> {
                         try {
-                            boucleAm.main(null);
-                            for(int i=0;i<10000;i++){
-                                Thread.sleep(1000);
-                                System.out.println("Programme tourne depuis " + i + " secondes");
-                            }
+                            boucleAm.paladiumminer();
                         } catch (InterruptedException ex) {
-                            ex.printStackTrace();
-                            System.out.println("thread off");
-
+                            throw new RuntimeException(ex);
                         }
                     });
                     backgroundThread.start();

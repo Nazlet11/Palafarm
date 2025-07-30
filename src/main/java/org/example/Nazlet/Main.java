@@ -11,6 +11,11 @@ public class Main {
 
         JFrame frame = new JFrame("Palafarm");
 
+        //Apparance native
+
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
+
         ImageIcon iconAm = new ImageIcon(getClass().getResource("/Am.png"));
         frame.setIconImage(iconAm.getImage());
 
@@ -25,7 +30,7 @@ public class Main {
 
 
 
-        frame.setSize(650, 235);
+        frame.setSize(600, 225);
 
         // j ai mis 2 heure a faire marcher l icone
         ImageIcon icon = new ImageIcon(getClass().getResource("/Pf.png"));
@@ -34,10 +39,6 @@ public class Main {
 
 
 
-        //Apparance native
-        /*
-        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        */
 
 
 
