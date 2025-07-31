@@ -41,7 +41,6 @@ public class Main {
 
 
 
-
         label.setText("x / y");
         btnAm.setBounds(90,40,150,100);
         btnUfn.setBounds(340,40,150,100);
@@ -84,7 +83,8 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
 
                 try {
-                    Unclaimfinder_notifier unclaimfinder_notifier = new Unclaimfinder_notifier(null);
+                    //Unclaimfinder_notifier unclaimfinder_notifier = new Unclaimfinder_notifier(null);
+                    Unclaimfinder_notifier.main(null);
 
                     frame.setVisible(false);
 

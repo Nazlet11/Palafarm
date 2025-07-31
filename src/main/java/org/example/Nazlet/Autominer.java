@@ -74,7 +74,7 @@ public class Autominer {
 
                     backgroundThread = new Thread(() -> {
                         try {
-                            boucleAm.paladiumminer();
+                            boucleAm.straightmining();
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }

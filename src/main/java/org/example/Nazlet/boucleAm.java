@@ -56,11 +56,11 @@ public class boucleAm {
 
 
     public static void zdclick() throws InterruptedException {
-        bot.keyPress(KeyEvent.VK_Z);
+        //bot.keyPress(KeyEvent.VK_Z);
         bot.keyPress(KeyEvent.VK_D);
         bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         Thread.sleep(5000);
-        bot.keyRelease(KeyEvent.VK_Z);
+        //bot.keyRelease(KeyEvent.VK_Z);
         bot.keyRelease(KeyEvent.VK_D);
         bot.keyPress(KeyEvent.VK_SHIFT);
         Thread.sleep(50);
@@ -74,10 +74,10 @@ public class boucleAm {
         Thread.sleep(50);
         bot.keyRelease(KeyEvent.VK_SHIFT);
         Thread.sleep(50);
-        bot.keyPress(KeyEvent.VK_Z);
+        //bot.keyPress(KeyEvent.VK_Z);
         bot.keyPress(KeyEvent.VK_D);
         Thread.sleep(5000);
-        bot.keyRelease(KeyEvent.VK_Z);
+        //bot.keyRelease(KeyEvent.VK_Z);
         bot.keyRelease(KeyEvent.VK_D);
         Thread.sleep(500);
     }
@@ -122,7 +122,7 @@ public class boucleAm {
         for(int k=0;k<10000000;k++){
 
 
-            calibration(smcalibration);
+            //calibration(smcalibration);
 
 
             zdclick();
