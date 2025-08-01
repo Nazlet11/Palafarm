@@ -82,6 +82,74 @@ public class boucleAm {
         Thread.sleep(500);
     }
 
+    public static void jumpblock() throws InterruptedException {
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        Thread.sleep(50);
+        bot.keyPress(KeyEvent.VK_C);
+        Thread.sleep(30);
+        bot.keyRelease(KeyEvent.VK_C);
+        Thread.sleep(30);
+        //regarde bas
+        for(int i = 0; i<10;i++){
+            moveMouse(960,800);
+            Thread.sleep(5);
+        }
+        Thread.sleep(300);
+        System.out.println("saut");
+        bot.keyPress(KeyEvent.VK_SPACE);
+        Thread.sleep(50);
+        bot.keyRelease(KeyEvent.VK_SPACE);
+        Thread.sleep(110);
+
+
+
+        System.out.println("pose bloc en dessous de soi");
+        bot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+        Thread.sleep(30);
+        bot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+        Thread.sleep(30);
+        bot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+        Thread.sleep(30);
+        bot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+        bot.keyPress(KeyEvent.VK_8);
+        Thread.sleep(30);
+        bot.keyRelease(KeyEvent.VK_8);
+        //regarde vers le haut
+        for(int i = 0; i<smcalibration;i++){
+            moveMouse(960,490);
+            Thread.sleep(4);
+        }
+
+        click();
+    }
+
+    public static void casseblochaut() throws InterruptedException {
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        Thread.sleep(50);
+        //regarde vers le haut
+        for(int i = 0; i<10;i++){
+            moveMouse(960,200);
+            Thread.sleep(4);
+        }
+        System.out.println("casse bloc au dessus de soi");
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        Thread.sleep(500);
+
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+
+        for(int i = 0; i<13;i++) {
+            moveMouse(960, 800);
+            Thread.sleep(1);
+        }
+
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+    }
+
     public static void paladiumminer() throws InterruptedException {
         System.out.println("Mettez vous en position");
         System.out.println("Début du programme dans 3 secondes");
@@ -122,10 +190,14 @@ public class boucleAm {
         for(int k=0;k<10000000;k++){
 
 
-            //calibration(smcalibration);
+
+            jumpblock();
 
 
             zdclick();
+
+
+            casseblochaut();
 
             System.out.println("1er bloc");
 
@@ -149,37 +221,45 @@ public class boucleAm {
 
             zdclick();
             System.out.println("2eme bloc");
-
+            jumpblock();
             zdclick();
             System.out.println("3eme bloc");
 
+            casseblochaut();
+
             zdclick();
             System.out.println("4eme bloc");
-
+            jumpblock();
             zdclick();
             System.out.println("5eme bloc");
-
+            casseblochaut();
             zdclick();
             System.out.println("6eme bloc");
+            jumpblock();
+
 
             zdclick();
             System.out.println("7eme bloc");
-
+            casseblochaut();
             zdclick();
             System.out.println("8eme bloc");
-
+            jumpblock();
             zdclick();
             System.out.println("10eme bloc");
 
+            casseblochaut();
+
             zdclick();
             System.out.println("11eme bloc");
-
+            jumpblock();
             zdclick();
             System.out.println("12eme bloc");
-
+            casseblochaut();
             zdclick();
             System.out.println("13eme bloc");
-            Thread.sleep(1000);
+
+
+            Thread.sleep(400);
             System.out.println("Boucle numéro " + k);
         }
     }
