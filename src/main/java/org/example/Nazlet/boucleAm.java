@@ -1,5 +1,6 @@
 package org.example.Nazlet;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -10,6 +11,7 @@ public class boucleAm {
     private static Robot bot;
     static int smcalibration = 22;
     static int pmcalibration = 26;
+    static boolean state = false; // etat on ou off
 
     //Initialisation
     static {
@@ -40,17 +42,13 @@ public class boucleAm {
         Thread.sleep(60);
     }
 
-    public static void calibration(int axe_y) throws InterruptedException {
-        //regarde tt en bas, ses pieds
-        for(int i = 0; i<10;i++){
-            moveMouse(960,800);
-            Thread.sleep(5);
-        }
-
-        //regarde vers le haut
-        for(int i = 0; i<axe_y;i++){
-            moveMouse(960,490);
-            Thread.sleep(4);
+    public static void changeState(JButton bouton){
+        if (state == true){
+            state = false;
+            bouton.setText("Activer");
+        } else {
+            state = true;
+            bouton.setText("Désactiver");
         }
     }
 
@@ -159,7 +157,7 @@ public class boucleAm {
         System.out.println("Début du programme dans 1 secondes");
         Thread.sleep(1000);
 
-        calibration(pmcalibration);
+        //calibration(pmcalibration);
 
         Thread.sleep(100);
         bot.keyPress(KeyEvent.VK_Z);

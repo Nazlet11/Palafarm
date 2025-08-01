@@ -16,7 +16,7 @@ public class Autominer {
 
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
-        JButton btn = new JButton("Activer/Désactiver");
+        JButton btn = new JButton("Lancer");
         JButton btnlogs = new JButton("logs");
         JLabel label = new JLabel("x et y texte");
         JTextField xzone = new JTextField();
@@ -63,12 +63,14 @@ public class Autominer {
             public void actionPerformed(ActionEvent e) {
                 if (state) {
                     state = false;
+                    btn.setText("Désactiver");
                     System.out.println("Appui du bouton off");
                     if (backgroundThread != null && backgroundThread.isAlive()) {
                         backgroundThread.interrupt();
                     }
                 } else {
                     state = true;
+                    btn.setText("Activer");
                     System.out.println("Appui du bouton on");
                     System.out.println("thread running");
 
